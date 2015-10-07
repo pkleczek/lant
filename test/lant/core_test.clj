@@ -2,6 +2,13 @@
   (:require [clojure.test :refer :all]
             [lant.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest ant-movement
+  (testing "Ant is set :north by default"
+    (is (= :north (:dir (make-ant)))))
+
+  (testing "Ant can rotate left"
+    (is (= :west (:dir (rotate-left (make-ant))))))
+
+  (testing "Ant can rotate right"
+    (is (= :east (:dir (rotate-right (make-ant))))))
+)
